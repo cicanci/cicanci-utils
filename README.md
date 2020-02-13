@@ -10,7 +10,7 @@ Open the Package Managed in the Unity Editor (Window/Package Manager). Then, cli
 
 Type in this repository URL, you can use SSH `git@github.com:cicanci/cicanci-utils.git` or HTTPS `https://github.com/cicanci/cicanci-utils.git`.
 
-![2-add-from-github](https://user-images.githubusercontent.com/1128438/74468213-3545d600-4e79-11ea-853e-371640221c2e.png
+![2-add-from-github](https://user-images.githubusercontent.com/1128438/74468213-3545d600-4e79-11ea-853e-371640221c2e.png)
 
 Finally, the package will be imported and the Package Manager window will show you the version and other details. If you want to uninstall the package, just click in the `Remove` button in this screen after selecting the package in the left menu.
 
