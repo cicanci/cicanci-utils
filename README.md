@@ -1,6 +1,6 @@
 # Cicanci Utils
 
-Useful pieces of code for Unity projects.
+Useful pieces of code for Unity projects. Check out the [sample project here](https://github.com/cicanci/cicanci-utils-sample).
 
 ## Installation
 
