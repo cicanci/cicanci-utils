@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 159262314}
   - component: {fileID: 159262313}
   m_Layer: 5
-  m_Name: DecreaseButton
+  m_Name: RemoveButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -204,7 +204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 262437773}
-        m_MethodName: DecreaseCounter
+        m_MethodName: RemoveUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 262437774}
   - component: {fileID: 262437773}
   m_Layer: 0
-  m_Name: _MessageManagerSample
+  m_Name: _MonoProxySample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,11 +276,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 262437772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc5588aa2dc247c8b43d06e0b949797, type: 3}
+  m_Script: {fileID: 11500000, guid: 225ecf772a4c54f9cb30b2b02a9d2253, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _counterText: {fileID: 783542436}
-  _counter: 0
+  _messageText: {fileID: 783542436}
 --- !u!4 &262437774
 Transform:
   m_ObjectHideFlags: 0
@@ -527,7 +526,7 @@ GameObject:
   - component: {fileID: 783542437}
   - component: {fileID: 783542436}
   m_Layer: 5
-  m_Name: CounterText
+  m_Name: MessageText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -580,10 +579,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
+    m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &783542437
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -706,7 +705,7 @@ GameObject:
   - component: {fileID: 1405631038}
   - component: {fileID: 1405631037}
   m_Layer: 5
-  m_Name: IncreaseButton
+  m_Name: AddButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -776,7 +775,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 262437773}
-        m_MethodName: IncreaseCounter
+        m_MethodName: AddUpdate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

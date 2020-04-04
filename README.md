@@ -34,7 +34,7 @@ In the script below you will need to call the method `SendMessage` in order to f
 using Cicanci.Utils;
 using UnityEngine;
 
-public class MessageBehaviour : MonoBehaviour
+public class MessageManagerSample : MonoBehaviour
 {
     private void Start()
     {
@@ -61,5 +61,33 @@ public class MessageBehaviour : MonoBehaviour
 public class MyMessage
 {
     public string Greetings;
+}
+```
+
+
+### Mono Proxy
+
+This class can be used to listen to `Update` callbacks without extending `MonoBehaviour` in your class.
+
+
+```csharp
+using Cicanci.Utils;
+
+private class PrintMessage
+{
+    public void AddUpdate()
+    {
+        MonoProxy.Instance.UpdateEvent += OnUpdate;
+    }
+
+    public void RemoveUpdate()
+    {
+        MonoProxy.Instance.UpdateEvent -= OnUpdate;
+    }
+
+    private void OnUpdate()
+    {
+        Debug.Log("Update from MonoProxy was called!");
+    }
 }
 ```
