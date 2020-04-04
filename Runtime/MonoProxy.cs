@@ -19,30 +19,9 @@ namespace Cicanci.Utils
             }
         }
 
-        public delegate void AwakeEventHandler();
-        public delegate void StartEventHandler();
-        public delegate void DestroyEventHandler();
         public delegate void UpdateEventHandler();
 
-        public event AwakeEventHandler AwakeEvent;
-        public event StartEventHandler StartEvent;
-        public event DestroyEventHandler DestroyEvent;
         public event UpdateEventHandler UpdateEvent;
-
-        private void Awake()
-        {
-            AwakeEvent?.Invoke();
-        }
-
-        private void Start()
-        {
-            StartEvent?.Invoke();
-        }
-
-        private void OnDestroy()
-        {
-            DestroyEvent?.Invoke();
-        }
 
         private void Update()
         {

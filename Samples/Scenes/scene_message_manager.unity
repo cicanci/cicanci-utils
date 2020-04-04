@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 262437774}
   - component: {fileID: 262437773}
   m_Layer: 0
-  m_Name: MessageBehaviour
+  m_Name: _MessageManagerSample
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -276,10 +276,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 262437772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae6617282b8b8411282c9c03554b265d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4fc5588aa2dc247c8b43d06e0b949797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _counterText: {fileID: 783542436}
+  _counter: 0
 --- !u!4 &262437774
 Transform:
   m_ObjectHideFlags: 0

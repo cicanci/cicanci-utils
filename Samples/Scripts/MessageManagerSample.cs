@@ -1,10 +1,9 @@
-﻿using Cicanci.Utils;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Cicanci.Utils.Samples
 {
-    public class MessageManagerTest : MonoBehaviour
+    public class MessageManagerSample : MonoBehaviour
     {
         [SerializeField]
         private Text _counterText = null;
