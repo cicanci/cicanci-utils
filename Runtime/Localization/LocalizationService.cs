@@ -1,5 +1,5 @@
 ﻿
-namespace Cicanci.Localization
+namespace Cicanci.Utils
 {
     public class LocalizationService : BaseService
     {

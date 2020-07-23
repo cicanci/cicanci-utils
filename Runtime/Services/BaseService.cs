@@ -1,5 +1,5 @@
 ﻿
-namespace Cicanci
+namespace Cicanci.Utils
 {
     public class BaseService : IService
     {

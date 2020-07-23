@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Cicanci
+namespace Cicanci.Utils
 {
     public class Services : IDisposable
     {

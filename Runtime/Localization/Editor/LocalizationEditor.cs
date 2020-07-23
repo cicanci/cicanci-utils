@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Cicanci.Localization
+namespace Cicanci.Utils
 {
     public class LocalizationEditor : EditorWindow
     {
