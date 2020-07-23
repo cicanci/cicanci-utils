@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Cicanci.Localization
+namespace Cicanci.Utils
 {
 #if CICANCI_ENABLE_DEV
     [CreateAssetMenu(fileName = "LocalizationData", menuName = "Cicanci/Localization/Create Data", order = 0)]
