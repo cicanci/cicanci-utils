@@ -1,4 +1,6 @@
 ﻿
+using UnityEngine;
+
 namespace Cicanci.Utils
 {
     public class LocalizationService : BaseService
@@ -8,6 +10,11 @@ namespace Cicanci.Utils
             base.Initialize();
 
             IsReady = true;
+        }
+
+        public int Test()
+        {
+            return 42;
         }
     }
 }
