@@ -1,6 +1,6 @@
 {
   "name": "com.cicanci.unity-utils",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "displayName": "Cicanci Utils",
   "description": "Useful pieces of code for Unity projects.",
   "unity": "2017.4",
