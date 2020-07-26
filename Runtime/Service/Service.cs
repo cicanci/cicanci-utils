@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 namespace Cicanci.Utils
 {
-    public class Services : IDisposable
+    public class Service : IDisposable
     {
         private readonly Dictionary<Type, IService> _services;
 
-        public Services()
+        public Service()
         {
             _services = new Dictionary<Type, IService>();
         }
@@ -26,7 +27,9 @@ namespace Cicanci.Utils
                 return;
             }
 
-            _services.Add(typeof(T), default(T));
+            ConstructorInfo constructor = typeof(T).GetConstructor(new Type[0]);
+            service = (T)constructor.Invoke(null);
+            _services.Add(typeof(T), service);
         }
 
         public void Unregister<T>() where T : IService
@@ -40,17 +43,10 @@ namespace Cicanci.Utils
             _services.Remove(typeof(T));
         }
 
-        public IService Get<T>(bool forceRegister = false) where T : IService
+        public IService Get<T>() where T : IService
         {
             if(_services.TryGetValue(typeof(T), out IService service))
             {
-                return service;
-            }
-
-            if(forceRegister)
-            {
-                service = default(T);
-                _services.Add(typeof(T), service);
                 return service;
             }
 
