@@ -43,14 +43,15 @@ namespace Cicanci.Utils
             _services.Remove(typeof(T));
         }
 
-        public IService Get<T>() where T : IService
+        public T Get<T>() where T : IService
         {
             if(_services.TryGetValue(typeof(T), out IService service))
             {
-                return service;
+                return (T)service;
             }
 
-            return null;
+            Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} not found. Did you register it?");
+            return default;
         }
     }
 }
