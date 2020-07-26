@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Cicanci.Utils
 {
-    public class Service : IDisposable
+    public class Services : IDisposable
     {
         private readonly Dictionary<Type, IService> _services;
 
-        public Service()
+        public Services()
         {
             _services = new Dictionary<Type, IService>();
         }
