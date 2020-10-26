@@ -7,19 +7,19 @@ namespace Cicanci.Utils
         [Conditional("ENABLE_DEBUG_LOG")]
         public void Log(string message)
         {
-            UnityEngine.Debug.Log(message);
+            UnityEngine.Debug.Log($"[{GetType()}] {message}");
         }
 
         [Conditional("ENABLE_DEBUG_LOG")]
         public void LogWarn(string message)
         {
-            UnityEngine.Debug.LogWarning(message);
+            UnityEngine.Debug.LogWarning($"[{GetType()}] {message}");
         }
 
         [Conditional("ENABLE_DEBUG_LOG")]
         public void LogError(string message)
         {
-            UnityEngine.Debug.LogError(message);
+            UnityEngine.Debug.LogError($"[{GetType()}] {message}");
         }
     }
 }
