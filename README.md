@@ -24,11 +24,11 @@ Here you will find the list of functionalities in this package, new features wil
 using Cicanci.Utils;
 ```
 
-### Message Manager
+### Message Service
 
-The following script shows how to add a listener in the `Start` method, remove it in the `OnDestroy` method, and send a message with a greeting. The class `MyMessage` represents the object sent and received.
+The following script shows how to add create a `Service` class to register the `MessageService`, add a listener in the `Start` method, remove it in the `OnDestroy` method, and send a message with a greeting. The class `MyMessage` represents the object sent and received.
 
-In the script below you will need to call the method `SendMessage` in order to fire the message.
+In the script below you will need to call the method `SendMessage` in order to fire the message. The message received is printed using the `LogService`.
 
 ```csharp
 using Cicanci.Utils;
@@ -36,25 +36,33 @@ using UnityEngine;
 
 public class MessageManagerSample : MonoBehaviour
 {
+    private Services _services = new Services();
+
+    private void Awake() 
+    {
+        _services.Register<MessageService>();
+        _services.Register<LogService>()
+    }
+
     private void Start()
     {
-        MessageManager.Instance.AddListener<MyMessage>(OnMessageReceived);
+        _services.Get<MessageService>().AddListener<MyMessage>(OnMessageReceived);
     }
 
     private void OnDestroy()
     {
-        MessageManager.Instance.RemoveListener<MyMessage>(OnMessageReceived);
+        _services.Get<MessageService>().RemoveListener<MyMessage>(OnMessageReceived);
     }
 
     private void OnMessageReceived(MyMessage message)
     {
-        Debug.Log(message.Greetings);
+        _services.Get<LogService>().Log(message.Greetings);
     }
 
     public void SendMessage()
     {
         MyMessage message = new MyMessage { Greetings = "Hello, World!" };
-        MessageManager.Instance.SendMessage(message);
+        _services.Get<MessageService>().SendMessage(message);
     }
 }
 
@@ -67,7 +75,7 @@ public class MyMessage
 
 ### Mono Proxy
 
-This class can be used to listen to `Update` callbacks without extending `MonoBehaviour` in your class.
+This class can be used to listen to `Update` callbacks without extending `MonoBehaviour` in your class. The message received is printed using the `LogService`.
 
 
 ```csharp
@@ -75,6 +83,13 @@ using Cicanci.Utils;
 
 private class PrintMessage
 {
+    private Services _services = new Services();
+
+    private PrintMessage() 
+    {
+        _services.Register<LogService>()
+    }
+
     public void AddUpdate()
     {
         MonoProxy.Instance.UpdateEvent += OnUpdate;
@@ -87,7 +102,7 @@ private class PrintMessage
 
     private void OnUpdate()
     {
-        Debug.Log("Update from MonoProxy was called!");
+        _services.Log<LogService>().Log("Update from MonoProxy was called!");
     }
 }
 ```
