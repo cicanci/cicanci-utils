@@ -38,20 +38,20 @@ public class MessageManagerSample : MonoBehaviour
 {
     private Services _services = new Services();
 
-    private void Awake() 
+    private void Start() 
     {
         _services.Register<MessageService>();
         _services.Register<LogService>()
-    }
 
-    private void Start()
-    {
         _services.Get<MessageService>().AddListener<MyMessage>(OnMessageReceived);
     }
 
     private void OnDestroy()
     {
         _services.Get<MessageService>().RemoveListener<MyMessage>(OnMessageReceived);
+
+        _services.Unregister<MessageService>();
+        _services.Unregister<LogService>();
     }
 
     private void OnMessageReceived(MyMessage message)
@@ -88,6 +88,11 @@ private class PrintMessage
     private PrintMessage() 
     {
         _services.Register<LogService>()
+    }
+
+    ~PrintMessage()
+    {
+        _services.Unregister<LogService>();
     }
 
     public void AddUpdate()
