@@ -3,18 +3,11 @@ using System.Collections.Generic;
 
 namespace Cicanci.Utils
 {
-    public class MessageManager
+    public class MessageService : BaseService
     {
         private readonly Dictionary<Type, List<Delegate>> _listeners;
 
-        private static MessageManager _instance;
-
-        public static MessageManager Instance
-        {
-            get { return _instance ?? (_instance = new MessageManager()); }
-        }
-
-        private MessageManager()
+        public MessageService()
         {
             _listeners = new Dictionary<Type, List<Delegate>>();
         }

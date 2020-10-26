@@ -7,21 +7,25 @@ namespace Cicanci.Utils
 {
     public class Services : IDisposable
     {
-        private readonly Dictionary<Type, IService> _services;
+        private readonly Dictionary<Type, BaseService> _services;
 
         public Services()
         {
-            _services = new Dictionary<Type, IService>();
+            _services = new Dictionary<Type, BaseService>();
         }
 
         public void Dispose()
         {
-            // TODO
+            foreach(var item in _services)
+            {
+                item.Value.Dispose();
+            }
+            _services.Clear();
         }
 
-        public void Register<T>() where T : IService
+        public void Register<T>() where T : BaseService
         {
-            if(_services.TryGetValue(typeof(T), out IService service))
+            if(_services.TryGetValue(typeof(T), out BaseService service))
             {
                 Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} already registered");
                 return;
@@ -32,9 +36,9 @@ namespace Cicanci.Utils
             _services.Add(typeof(T), service);
         }
 
-        public void Unregister<T>() where T : IService
+        public void Unregister<T>() where T : BaseService
         {
-            if(!_services.TryGetValue(typeof(T), out IService service))
+            if(!_services.TryGetValue(typeof(T), out BaseService service))
             {
                 Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} not found to unregister");
                 return;
@@ -43,9 +47,9 @@ namespace Cicanci.Utils
             _services.Remove(typeof(T));
         }
 
-        public T Get<T>() where T : IService
+        public T Get<T>() where T : BaseService
         {
-            if(_services.TryGetValue(typeof(T), out IService service))
+            if(_services.TryGetValue(typeof(T), out BaseService service))
             {
                 return (T)service;
             }
