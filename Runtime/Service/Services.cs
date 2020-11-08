@@ -27,7 +27,7 @@ namespace Cicanci.Utils
         {
             if(_services.TryGetValue(typeof(T), out BaseService service))
             {
-                Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} already registered");
+                Logger.LogWarn($"Service {typeof(T)} already registered");
                 return;
             }
 
@@ -40,21 +40,27 @@ namespace Cicanci.Utils
         {
             if(!_services.TryGetValue(typeof(T), out BaseService service))
             {
-                Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} not found to unregister");
+                Logger.LogWarn($"Service {typeof(T)} not found to unregister");
                 return;
             }
             
             _services.Remove(typeof(T));
         }
 
-        public T Get<T>() where T : BaseService
+        public T Get<T>(bool registerIfNotFound = false) where T : BaseService
         {
             if(_services.TryGetValue(typeof(T), out BaseService service))
             {
                 return (T)service;
             }
 
-            Debug.LogWarning($"[Cicanci.Services] Service {typeof(T)} not found. Did you register it?");
+            if(registerIfNotFound)
+            {
+                Register<T>();
+                return Get<T>();
+            }
+
+            Logger.LogWarn($"Service {typeof(T)} not found. Did you register it?");
             return default;
         }
     }

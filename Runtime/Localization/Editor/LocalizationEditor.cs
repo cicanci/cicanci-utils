@@ -25,7 +25,7 @@ namespace Cicanci.Utils
                 
             for (int i = 0; i < fileContent.Length; i++)
             {
-                Debug.Log(fileContent[i]);
+                Logger.Log(fileContent[i]);
             }   
         }
     }
