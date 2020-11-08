@@ -18,7 +18,7 @@ Finally, the package will be imported and the Package Manager window will show y
 
 ## Usage
 
-Here you will find the list of functionalities in this package, new features will be added periodically. Remeber to always include the folowing line at the beginning of your script so the package funcionalities will be available for you:
+Here you will find the list of functionalities in this package, new features will be added periodically. Remember to always include the following line at the beginning of your script so the package functionalities will be available for you:
 
 ```csharp
 using Cicanci.Utils;
@@ -38,7 +38,7 @@ public class MessageManagerSample : MonoBehaviour
 {
     private Services _services = new Services();
 
-    private void Start() 
+    private void Start()
     {
         _services.Register<MessageService>();
         _services.Register<LogService>()
@@ -85,7 +85,7 @@ private class PrintMessage
 {
     private Services _services = new Services();
 
-    private PrintMessage() 
+    private PrintMessage()
     {
         _services.Register<LogService>()
     }
