@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿#if UNITY_EDITOR
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,3 +31,4 @@ namespace Cicanci.Utils
         }
     }
 }
+#endif
