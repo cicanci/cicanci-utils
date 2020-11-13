@@ -1,9 +1,11 @@
 {
   "name": "com.cicanci.unity-utils",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "displayName": "Cicanci Utils",
   "description": "Useful pieces of code for Unity projects.",
   "unity": "2017.4",
+  "repository": "git://github.com/cicanci/cicanci-utils.git",
+  "type": "library",
   "keyworks": [
     "library",
     "utility",
@@ -14,5 +16,7 @@
     "email": "bruno@cicanci.com",
     "url": "https://cicanci.com"
   },
-  "type": "library"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@cicanci"
+  }
 }
